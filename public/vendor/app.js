@@ -1,5 +1,5 @@
-var = 0
+var x = 0;
 function buttont_alert(){
-  var+=1;
-  alert("Hello!!!");
+  x+=1;
+  alert(x);
 }
