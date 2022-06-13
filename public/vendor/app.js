@@ -1,5 +1,6 @@
-var x = 0;
 function buttont_alert(){
-  x+=1;
+  var x = window.localStorage.getItem('prod');
+  x = x*1 + 1;
+  window.localStorage.setItem('prod', x);
   alert(x);
 }
