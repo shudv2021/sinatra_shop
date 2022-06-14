@@ -13,3 +13,8 @@ get '/' do
 erb :index
 end
 
+get '/goods' do
+@goods = Product.all
+  erb :goods
+end
+
