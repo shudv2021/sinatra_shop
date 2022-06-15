@@ -4,3 +4,8 @@ function buttont_alert(){
   window.localStorage.setItem('prod', x);
   alert(x);
 }
+
+function add_to_curt(){
+  
+  alert("Add to curt")
+}
