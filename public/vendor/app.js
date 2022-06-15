@@ -23,8 +23,8 @@ function reduce_from_basket(id){
 }
 
   
-function show_counter(id, x) {
+function show_counter(id,x) {
+  
   var el = document.getElementById(id);
-  el.value = x;
-  location.reload(); 
-  }
+  el.innerHTML = x;  
+}
