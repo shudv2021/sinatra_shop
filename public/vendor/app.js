@@ -5,7 +5,23 @@ function buttont_alert(){
   alert(x);
 }
 
-function add_to_basket(){
-  
-  alert("Add to basket")
+function add_to_basket(id){
+  var x = window.localStorage.getItem('product_'+id);
+  x = x*1+1
+  window.localStorage.setItem('product_'+id, x)
+  show_counter(id,x);
 }
+
+function reduce_from_basket(id){
+  var x = window.localStorage.getItem('product_'+id);
+  x=x*1-1;
+  window.localStorage.setItem('product_'+id, x);
+  show_counter(id,x)
+}
+
+  
+function show_counter(id, x) {
+  var el = document.getElementById(id);
+  el.value = x;
+  location.reload(); 
+  }
