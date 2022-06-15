@@ -16,7 +16,7 @@ class AddProducts < ActiveRecord::Migration[7.0]
       :is_spisy => true,
       :is_veg => false,
       :is_best_offer => false,
-      :path_to_image => '/img/dog.jpg')
+      :path_to_image => '/img/dog.jpeg')
       
       Product.create(:title => 'Сэндвич',
       :description => 'Сэндвич с колбасой',
