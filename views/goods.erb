@@ -1,13 +1,17 @@
 <div class="row">
-  
+
       <% @goods.each do |product|%>
       <div class="col-md-4" style="border:double; text-size:200%">
 
-      <p style="font-size: 200%"><%=product.title%> </p>
-     <p> <img src=<%=product.path_to_image%> height=100 width=100><p>
-     <p><%=product.description%></p>
-<p>Вес:<%=product.size%>  гр.</p>
-<p>Цена:<%=product.price%>  руб.</p>
+            <p style="font-size: 200%">
+                  <%=product.title%>
+                  <button class="btn btn-success btn-xs">+</button>            
+            </p>
+            <p> <img src=<%=product.path_to_image%> height=100 width=100><p>
+            <p><%=product.description%></p>
+            <p>Вес:<%=product.size%>  гр.</p>
+            <p>Цена:<%=product.price%>  руб.</p>
+      
       </div>
       <%end%>
 
