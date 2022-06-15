@@ -6,16 +6,19 @@ function buttont_alert(){
 }
 
 function add_to_basket(id){
-  var x = window.localStorage.getItem('product_'+id);
+  var key = 'product_'+id
+
+  var x = window.localStorage.getItem(key);
   x = x*1+1
-  window.localStorage.setItem('product_'+id, x)
+  window.localStorage.setItem(key, x)
   show_counter(id,x);
 }
 
 function reduce_from_basket(id){
-  var x = window.localStorage.getItem('product_'+id);
+  var key = 'product_'+id
+  var x = window.localStorage.getItem(key);
   x=x*1-1;
-  window.localStorage.setItem('product_'+id, x);
+  window.localStorage.setItem(key, x);
   show_counter(id,x)
 }
 
