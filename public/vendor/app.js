@@ -5,7 +5,7 @@ function buttont_alert(){
   alert(x);
 }
 
-function add_to_curt(){
+function add_to_basket(){
   
-  alert("Add to curt")
+  alert("Add to basket")
 }
