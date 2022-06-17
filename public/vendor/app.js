@@ -11,7 +11,7 @@ function add_to_basket(id){
   var x = window.localStorage.getItem(key);
   x = x*1+1
   window.localStorage.setItem(key, x)
-  show_counter(id,x);
+  order_handler(id,x);
 }
 
 function reduce_from_basket(id){
@@ -19,13 +19,14 @@ function reduce_from_basket(id){
   var x = window.localStorage.getItem(key);
   x=x*1-1;
   window.localStorage.setItem(key, x);
-  show_counter(id,x)
+  order_handler(id,x);
 }
 
-  
-function show_counter(id,x) { 
+function order_handler(id,x) { 
   var el = document.getElementById(id);
-  el.innerHTML = x;  
+  el.innerHTML = x;
+  var order = get_order()
+  fill_order_form(order)
 }
 
 function get_order() {
@@ -38,4 +39,9 @@ function get_order() {
     }
   }
 return order;
+}
+
+function fill_order_form(order){
+  var el=document.getElementById('order_form');
+  el.value = order
 }
