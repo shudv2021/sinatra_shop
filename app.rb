@@ -18,3 +18,6 @@ get '/goods' do
   erb :goods
 end
 
+post '/parchase' do
+
+end
