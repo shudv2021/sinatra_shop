@@ -45,3 +45,14 @@ function fill_order_form(order){
   var el=document.getElementById('order_form');
   el.value = order
 }
+function show_total_amount(){
+  
+  for(i=0; i < window.localStorage.length; i++){
+    var key = window.localStorage.key(i);
+    var value = window.localStorage.getItem(key);
+    if (key.indexOf('product_')==0){
+      var el = document.getElementById(key.replace(/^.{8}/, ''))
+      el.innerHTML = value
+    } 
+  }
+}
