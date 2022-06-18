@@ -1,3 +1,5 @@
+
+
 <div class="row">
 
       <% @goods.each do |product|%>
@@ -6,8 +8,8 @@
             <p style="font-size: 200%">
                   <%=product.title%>
                   <span style="float: right">      
-                  <span id="<%=product.id%>" style="border-style:groove; font-size: 75%"></span>
                   <button class="btn btn-success btn-xs" style="background-color:red" onclick="reduce_from_basket(<%=product.id%>)">-</button>
+                  <span id="<%=product.id%>" style="border-style:groove; font-size: 75%"></span>
                   <button class="btn btn-success btn-xs" onclick="add_to_basket(<%=product.id%>)">+</button>
                   </span>
             </p>
@@ -20,3 +22,6 @@
       <%end%>
 
 </div>
+<script type="text/javascript"> 
+show_total_amount();
+</script>
