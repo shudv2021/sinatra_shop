@@ -3,10 +3,14 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
+require 'pry'
 
 set :database, {adapter: "sqlite3", database: "shop_ar.db"}
 
 class Product < ActiveRecord::Base
+end
+
+class Order < ActiveRecord::Base
 end
 
 get '/' do
@@ -18,6 +22,9 @@ get '/goods' do
   erb :goods
 end
 
-post '/parchase' do
-
+post '/orders' do
+  @order = params[:order]
+  @order.chomp!(', ').gsub!('product_')
+    
+  erb :orders
 end
