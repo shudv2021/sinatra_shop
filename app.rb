@@ -13,6 +13,18 @@ end
 class Order < ActiveRecord::Base
 end
 
+def parse_order(order)
+  order.chomp!(', ').gsub!('product_', '')
+    
+  arr_order = []
+  order.split(',').each do |item|
+  item = item.split('=')
+    arr_order << item
+  end
+  
+  return arr_order
+end
+
 get '/' do
 erb :index
 end
@@ -22,9 +34,9 @@ get '/goods' do
   erb :goods
 end
 
-post '/orders' do
-  @order = params[:order]
-  @order.chomp!(', ').gsub!('product_')
+post '/order' do
+  @order = parse_order(params[:order])
+  
     
   erb :orders
 end
