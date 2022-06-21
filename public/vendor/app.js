@@ -45,8 +45,8 @@ function fill_order_form(order){
   var el=document.getElementById('order_form');
   el.value = order
 }
-function show_total_amount(){
-  
+
+function show_total_amount(){  
   for(i=0; i < window.localStorage.length; i++){
     var key = window.localStorage.key(i);
     var value = window.localStorage.getItem(key);
@@ -55,4 +55,14 @@ function show_total_amount(){
       el.innerHTML = value
     } 
   }
+}
+
+function clearn_local_storage(){
+  for (i = 0; i < window.localStorage.length; i++){
+    var key = window.localStorage.key(i);
+      if (key.indexOf('product_')==0){
+        window.localStorage.setItem(key,0)
+      } 
+  }
+  show_total_amount()
 }
