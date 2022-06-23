@@ -31,3 +31,23 @@
         </tbody>
 </table>    
 
+<form action='/order_for_execute' method='POST' role='form'>
+  <input name=order[order_input] type='hidden' value = <%=@goods_in_order%>>
+  
+  <div class = 'form-group'>
+    <label>Client name </label>
+    <input type='text' name='order[name]' placeholder='Input your name'>
+  </div>
+  
+  <div class = 'form-group'>
+    <label>Client phone </label>
+    <input type='text' name='order[phone]' placeholder='Input your phone'>
+  </div>
+  
+  <div class = 'form-group'>
+    <label>Delivery address </label>
+    <input type='text' name='order[adress]' placeholder='Input address for delivery'>
+  </div>
+  
+  <button type='submit' class='btn btn-primary'>Confirm the order </button>
+</form>
