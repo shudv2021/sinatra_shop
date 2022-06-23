@@ -19,7 +19,7 @@ def parse_order(order)
   arr_order = []
   order.split(',').each do |item|
   item = item.split('=')
-    arr_order << item
+    arr_order << item if item[1].to_i > 0 
   end
   
   return arr_order
@@ -36,7 +36,10 @@ end
 
 post '/order' do
   @order = parse_order(params[:order])
-  
+  @goods_in_order = []
+  @order.each do |item|
+    @goods_in_order << [Product.find(item[0]), item[1].to_i]
+  end
     
   erb :orders
 end

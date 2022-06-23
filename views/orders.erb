@@ -1,2 +1,33 @@
 <h1> Parchase</h1>
-<p><%=@order%></p>
+
+<table class='table'>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+        <%cost = 0%>
+        <%total_cost = 0%>
+          <%@goods_in_order.each do |good|%>      
+          <tr>
+            <td><%=good[0].title%></td>
+            <td><%=good[0].price%> руб.</td>
+            <td><%=good[1]%> шт.</td>
+            <%cost = good[1]*good[0].price%>
+            <td><%=cost%> руб.</td>
+            <%total_cost+=cost%>
+          </tr>
+          <%end%>
+          <tr>
+            <td>Total cost of parchase</td>
+            <td></td>
+            <td></td>
+            <td><%=total_cost%> руб.</td>
+          </tr>
+        </tbody>
+</table>    
+
