@@ -3,6 +3,7 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
+require 'pry'
 
 set :database, {adapter: "sqlite3", database: "shop_ar.db"}
 
@@ -41,4 +42,21 @@ post '/order' do
   end
     
   erb :orders
+end
+
+post '/order_for_execute' do
+
+order = Order.new(
+  :orders_input => params[:order][:order_input],
+  :name => params[:order][:name],
+  :phone => params[:order][:phone],
+  :address => params[:order][:address]
+)
+
+if order.save 
+  erb :goods
+else
+  erb :error
+end
+
 end

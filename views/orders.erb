@@ -12,6 +12,7 @@
         <tbody>
         <%cost = 0%>
         <%total_cost = 0%>
+        <%order_input = ''%>
           <%@goods_in_order.each do |good|%>      
           <tr>
             <td><%=good[0].title%></td>
@@ -20,6 +21,7 @@
             <%cost = good[1]*good[0].price%>
             <td><%=cost%> руб.</td>
             <%total_cost+=cost%>
+            <%order_input = order_input + "#{good[0].id}=#{good[1]},"%>
           </tr>
           <%end%>
           <tr>
@@ -30,9 +32,8 @@
           </tr>
         </tbody>
 </table>    
-
 <form action='/order_for_execute' method='POST' role='form'>
-  <input name=order[order_input] type='hidden' value = <%=@goods_in_order%>>
+  <input name='order[order_input]' type='hidden' value = <%=order_input.to_s%>>
   
   <div class = 'form-group'>
     <label>Client name </label>
@@ -46,7 +47,7 @@
   
   <div class = 'form-group'>
     <label>Delivery address </label>
-    <input type='text' name='order[adress]' placeholder='Input address for delivery'>
+    <input type='text' name='order[address]' placeholder='Input address for delivery'>
   </div>
   
   <button type='submit' class='btn btn-primary'>Confirm the order </button>
